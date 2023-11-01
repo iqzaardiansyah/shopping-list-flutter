@@ -29,6 +29,8 @@ class MyHomePage extends StatelessWidget {
           )
         ),
         backgroundColor: Colors.indigo,
+        elevation: 5,
+        shadowColor: Colors.black,
       ),
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
