@@ -23,11 +23,8 @@ class ShopCard extends StatelessWidget {
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
           if (item.name == "Tambah Produk") {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ShopFormPage(),
-            ));
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ShopFormPage()));
           }
         },
         child: Container(
