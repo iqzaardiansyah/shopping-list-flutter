@@ -44,10 +44,7 @@ class ShopCard extends StatelessWidget {
                 content: Text("$message Sampai jumpa, $uname."),
               ));
               // ignore: use_build_context_synchronously
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
-              );
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => const LoginPage()), (route) => false);
             } else {
               // ignore: use_build_context_synchronously
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
