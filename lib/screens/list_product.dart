@@ -5,16 +5,17 @@ import 'package:shopping_list/models/product.dart';
 import 'package:shopping_list/widgets/left_drawer.dart';
 
 class ProductPage extends StatefulWidget {
-    const ProductPage({Key? key}) : super(key: key);
+    const ProductPage({super.key});
 
     @override
+    // ignore: library_private_types_in_public_api
     _ProductPageState createState() => _ProductPageState();
 }
 
 class _ProductPageState extends State<ProductPage> {
 Future<List<Product>> fetchProduct() async {
     var url = Uri.parse(
-        'http://iqza-ardiansyah-tutorial.pbp.cs.ui.ac.id/json/');
+        'https://iqza-ardiansyah-tutorial.pbp.cs.ui.ac.id/json/');
     var response = await http.get(
         url,
         headers: {"Content-Type": "application/json"},
@@ -24,13 +25,13 @@ Future<List<Product>> fetchProduct() async {
     var data = jsonDecode(utf8.decode(response.bodyBytes));
 
     // melakukan konversi data json menjadi object Product
-    List<Product> list_product = [];
+    List<Product> listProduct = [];
     for (var d in data) {
         if (d != null) {
-            list_product.add(Product.fromJson(d));
+            listProduct.add(Product.fromJson(d));
         }
     }
-    return list_product;
+    return listProduct;
 }
 
 @override
