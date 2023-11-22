@@ -29,13 +29,13 @@ class ShopCard extends StatelessWidget {
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
           if (item.name == "Tambah Produk") {
             Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ShopFormPage()));
+                MaterialPageRoute(builder: (context) => const ShopFormPage()));
           } else if (item.name == "Lihat Produk") {
             Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ProductPage()));
+                MaterialPageRoute(builder: (context) => const ProductPage()));
           } else if (item.name == "Logout") {
             final response = await request.logout(
-                "http://iqza-ardiansyah-tutorial.pbp.cs.ui.ac.id/auth/logout/");
+                "https://iqza-ardiansyah-tutorial.pbp.cs.ui.ac.id/auth/logout/");
             String message = response["message"];
             if (response['status']) {
               String uname = response["username"];
@@ -44,7 +44,10 @@ class ShopCard extends StatelessWidget {
                 content: Text("$message Sampai jumpa, $uname."),
               ));
               // ignore: use_build_context_synchronously
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => const LoginPage()), (route) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LoginPage()),
+                  (route) => false);
             } else {
               // ignore: use_build_context_synchronously
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
